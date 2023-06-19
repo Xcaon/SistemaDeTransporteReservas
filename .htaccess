@@ -1,0 +1,11 @@
+<ifModule mod_rewrite.c>
+
+RewriteEngine On
+# ErrorDocument 404 http://localhost/roadtophp/error/
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+# Cargamos index.php con esos GET, que sera lo que pongamos en la url
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+
+</ifModule>
