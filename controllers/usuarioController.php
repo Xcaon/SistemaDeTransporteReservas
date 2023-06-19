@@ -6,9 +6,13 @@ class usuarioController {
         require_once 'views/usuario/usuarioVista.php';
     }
 
-    public function entrar(){
-        echo "hola";
+    public function login(){
+
+           echo "hola";
+      
     }
+
+
 
     
 
