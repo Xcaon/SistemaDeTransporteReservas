@@ -2,7 +2,7 @@
 
 require_once 'config/db.php';
 
-class usuario {
+class Usuario {
 
     private $db;
 
@@ -15,14 +15,20 @@ class usuario {
     }
 
     public function login(){
-        
-        
 
-        
-         
-       
+		$nombre = $this->getNombre();
+		$password = $this->getPassword();
+        $sql = "SELECT * FROM usuario WHERE nombre = '$nombre' && password = '$password'"; 
+		// En caso de error solo devuelve el false
+        $resultado = $this->db->query($sql);
 
-
+		$result = false;
+		// Por eso hay que comprobar el numero de rows
+		if ($resultado && $resultado->num_rows == 1){
+			$result = true;
+		}
+	
+		return $result;
     }
 
 	/**
@@ -33,11 +39,11 @@ class usuario {
 	}
 	
 	/**
-	 * @param mixed $nombre 
+	 * @param mixed  
 	 * @return self
 	 */
 	public function setNombre($nombre): self {
-		$this->nombre = $nombre;
+		$this->nombre = $this->db->real_escape_string($nombre);
 		return $this;
 	}
 	
@@ -53,7 +59,7 @@ class usuario {
 	 * @return self
 	 */
 	public function setPassword($password): self {
-		$this->password = $password;
+		$this->password = $this->db->real_escape_string($password);
 		return $this;
 	}
 

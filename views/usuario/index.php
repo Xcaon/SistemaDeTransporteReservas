@@ -1,1 +1,1 @@
-<h1> Este es el index  </h1>
+<h1> Este es el index de los viajes </h1>

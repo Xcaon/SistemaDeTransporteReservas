@@ -1,7 +1,7 @@
 <ifModule mod_rewrite.c>
 
 RewriteEngine On
-# ErrorDocument 404 http://localhost/roadtophp/error/
+ErrorDocument 404 http://localhost/sistematransporte/error/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
