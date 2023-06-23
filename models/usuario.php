@@ -6,6 +6,8 @@ class Usuario {
 
     private $db;
 
+	private $id;
+
     private $nombre;
 
     private $password;
@@ -30,6 +32,18 @@ class Usuario {
 	
 		return $result;
     }
+
+	public function getUserID(){
+		$nombre = $this->nombre;
+		$password = $this->password;
+		$sql = "SELECT * FROM usuario WHERE nombre = '$nombre' AND password = '$password'";
+		$resultado = $this->db->query($sql);
+
+		Utils::mostrarError($resultado);
+		
+		return $resultado;
+
+	}
 
 	/**
 	 * @return mixed
@@ -76,6 +90,22 @@ class Usuario {
 	 */
 	public function setDb($db): self {
 		$this->db = $db;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getId() {
+		return $this->id;
+	}
+	
+	/**
+	 * @param mixed $id 
+	 * @return self
+	 */
+	public function setId($id): self {
+		$this->id = $id;
 		return $this;
 	}
 }

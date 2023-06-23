@@ -4,6 +4,7 @@ require_once 'autoload.php';
 require_once 'config/parameters.php';
 require_once 'config/db.php';
 require_once 'utils/helpers.php';
+require_once 'views/layouts/header.php';
 
 /*
 EL EJERCICIO ES CREAR UNA WEB DE UN SISTEMA DE VIAJES
@@ -23,7 +24,7 @@ function showError(){
     } elseif ( !isset($_GET['controller']) && !isset($_GET['action'])  ) { // Si no existe ninguno de los dos.
         $nombre_controlador = controller_default; // entonces cargamos uno por defecto con esta constante definida en parameters.php.
     } else {
-        echo "La pagina que buscar no existe";  // Si no existe el fichero, imprimimos este mensaje
+        echo "La pagina que buscar no existe, el controlador no existe";  // Si no existe el fichero, imprimimos este mensaje
         exit();
     }
 

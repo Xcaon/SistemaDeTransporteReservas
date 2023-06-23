@@ -22,5 +22,17 @@ class Utils {
         return $viajes;
     }
 
+    public static function mostrarError($resultadoQuery){
+        require_once 'config/db.php';
+        $db = Database::connect();
+
+        if ($resultadoQuery === false){
+            // Se produjo un error en la consulta
+			echo "Error en la consulta: " . $db->error;
+			die();
+        }
+    }
+    
+
 }
 ?>

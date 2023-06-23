@@ -4,6 +4,11 @@
     echo $_SESSION['login'];
     unset($_SESSION['login']);
  } 
+
+ if (isset($_SESSION['id_login'])){
+   echo $_SESSION['id_login'];
+   unset($_SESSION['id_login']);
+ }
 ?>
 
 <!DOCTYPE html>

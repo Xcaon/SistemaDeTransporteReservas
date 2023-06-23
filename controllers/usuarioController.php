@@ -20,6 +20,13 @@ class usuarioController {
             $valor = $usuario->login();
             if ( $valor ) {
                 $_SESSION['login'] = "Es todo correcto";
+                $idUsuario = $usuario->getUserID();
+
+                // Recuperamos el id del usuario
+                if ( $fila = $idUsuario->fetch_assoc() ){
+                    $_SESSION['id_login'] = $fila['id'];
+                }
+
                 header("Location:".base_url."viajes/index");
             } else {
                 $_SESSION['login'] = "No se ha logueado";
